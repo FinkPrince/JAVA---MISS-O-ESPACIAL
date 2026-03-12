@@ -1,0 +1,58 @@
+import CentroControle.foguete.Foguete;
+
+import java.util.ArrayList;
+public class CentroControle {
+    private ArrayList<Foguete> foguetes;
+    private ArrayList<Satelite> satelites;
+
+    public CentroControle(){
+        foguetes=new ArrayList<>();
+        satelites=new ArrayList<>();
+    }
+    public void adicionar_foguete(Foguete f){
+        foguetes.add(f);
+    }
+    public void adicionar_satelite(Satelite s){
+        satelites.add(s);
+    }
+    public void iniciar_missao(String nome_foguete, String nome_satelite){
+        Foguete foguete_encontrado = null;
+        Satelite satelite_encontrado = null;
+
+        for (Foguete f : foguetes){
+            if(f.getFog().equals(nome_foguete)){
+                foguete_encontrado=f;
+            }
+        }
+        for (Satelite s: satelites){
+            if(s.getSat().equals(nome_satelite)){
+                satelite_encontrado=s;
+            }
+        }
+        if(foguete_encontrado!=null || satelite_encontrado!=null){
+            System.out.println("Foguete ou Satelite não encontrado");
+            return;
+        }
+        System.out.println("-- Iniciar a missao --");
+        boolean lancamento = foguete_encontrado.lancar();
+
+        if(!lancamento){
+            satelite_encontrado.setStatus("Em órbita");
+            System.out.println("Missao realizada com sucesso!");
+        } else{
+            System.out.println("Missao falhou !");
+        }
+    }
+    public void status_missao(){
+        System.out.println("--Foguetes--");{
+            for(Foguete f : foguetes){
+                System.out.println(f);
+            }
+            System.out.println("--Satelites--");{
+                for(Satelite s: satelites){
+                    System.out.println(s);
+                }
+            }
+        }
+    }
+}
