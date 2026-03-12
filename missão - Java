@@ -16,7 +16,7 @@ public class Missao {
         Satelite sat3 = new Satelite("Omega", 1500, "Órbita LUNAR", 100, "Ativo");
 
         // Relatório antes do lançamento
-        System.out.println("===== RELATÓRIO ANTES DO LANÇAMENTO =====");
+        System.out.println("----- RElatorio Antes do Lancamento -----");
         System.out.println(foguete1);
         System.out.println(foguete2);
 
