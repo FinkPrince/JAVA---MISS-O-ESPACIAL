@@ -11,9 +11,9 @@ public class Missao {
         Foguete foguete2 = new Foguete("Atlas V", 30, 400, "Pronto");
 
         // SATÉLITES
-        Satelite sat1 = new Satelite("Hubble", 1200, "Órbita GEO", 100, "Ativo");
-        Satelite sat2 = new Satelite("Starlink", 800, "Órbita TERRA", 100, "Ativo");
-        Satelite sat3 = new Satelite("JamesWebb", 1500, "Órbita LUNAR", 100, "Ativo");
+        Satelite sat1 = new Satelite("Alfa", 1200, "Órbita GEO", 100, "Ativo");
+        Satelite sat2 = new Satelite("Beta", 800, "Órbita TERRA", 100, "Ativo");
+        Satelite sat3 = new Satelite("Omega", 1500, "Órbita LUNAR", 100, "Ativo");
 
         // Relatório antes do lançamento
         System.out.println("===== RELATÓRIO ANTES DO LANÇAMENTO =====");
