@@ -11,9 +11,9 @@ public class Missao {
         Foguete foguete2 = new Foguete("Atlas V", 30, 400, "Pronto");
 
         // SATÉLITES
-        Satelite sat1 = new Satelite("Hubble", 1200, "Órbita Baixa", 100, "Ativo");
-        Satelite sat2 = new Satelite("Starlink", 800, "Órbita Média", 100, "Ativo");
-        Satelite sat3 = new Satelite("JamesWebb", 1500, "Órbita Profunda", 100, "Ativo");
+        Satelite sat1 = new Satelite("Hubble", 1200, "Órbita GEO", 100, "Ativo");
+        Satelite sat2 = new Satelite("Starlink", 800, "Órbita TERRA", 100, "Ativo");
+        Satelite sat3 = new Satelite("JamesWebb", 1500, "Órbita LUNAR", 100, "Ativo");
 
         // Relatório antes do lançamento
         System.out.println("===== RELATÓRIO ANTES DO LANÇAMENTO =====");
@@ -38,6 +38,14 @@ public class Missao {
             sat1.ativar_paineis();
 
             // ENVIO DE DADOS
+            public void enviar_dados(String dados){
+    if(energia >= 10){
+        System.out.println(nome + " enviando dados: " + dados);
+        energia -= 10;
+    }else{
+        System.out.println(nome + " sem energia suficiente!");
+    }
+}
             sat1.enviar_dados("Imagens da Terra !");
             sat1.enviar_dados("Dados climáticos !");
         } else {
