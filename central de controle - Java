@@ -1,3 +1,5 @@
+package CentroControle;
+
 import CentroControle.foguete.Foguete;
 
 import java.util.ArrayList;
@@ -36,8 +38,8 @@ public class CentroControle {
         System.out.println("-- Iniciar a missao --");
         boolean lancamento = foguete_encontrado.lancar();
 
-        if(!lancamento){
-            satelite_encontrado.setStatus("Em órbita");
+        if(lancamento){
+            satelite_encontrado.setStatus();
             System.out.println("Missao realizada com sucesso!");
         } else{
             System.out.println("Missao falhou !");
