@@ -1,60 +1,50 @@
 package CentroControle.main;
 
 import CentroControle.foguete.Foguete;
-import CentroControle.satelite.Satelite;
+import CentroControle.Satelite;
 
 public class Missao {
     public static void main(String[] args) {
-
         // FOGUETES
-        Foguete foguete1 = new Foguete("Falcon 9", 40, 500, "Pronto");
-        Foguete foguete2 = new Foguete("Atlas V", 30, 400, "Pronto");
-
+        Foguete foguete1 = new Foguete("Foguete Betinha\uD83D\uDE80", 40, 500, "Pronto");
+        Foguete foguete2 = new Foguete("Foguete Alpha\uD83D\uDE80", 30, 400, "Pronto");
         // SATÉLITES
-        Satelite sat1 = new Satelite("Alfa", 1200, "Órbita GEO", 100, "Ativo");
-        Satelite sat2 = new Satelite("Beta", 800, "Órbita TERRA", 100, "Ativo");
-        Satelite sat3 = new Satelite("Omega", 1500, "Órbita LUNAR", 100, "Ativo");
-
+        Satelite sat1 = new Satelite("Alfa\uD83D\uDEF0\uFE0F", 1200, "Órbita GEO\uD83C\uDF0E", 240, "Ativo","Espionagem");
+        Satelite sat2 = new Satelite("Beta\uD83D\uDEF0\uFE0F", 800, "Órbita TERRA\uD83C\uDF0F", 100, "Ativo","Dados Científicos");
+        Satelite sat3 = new Satelite("Omega\uD83D\uDEF0\uFE0F", 1500, "Órbita LUNAR\uD83C\uDF12", 400, "Ativo","Cominucação Global");
         // Relatório antes do lançamento
-        System.out.println("----- RElatorio Antes do Lancamento -----");
+        System.out.println("\n----- Relatorio Antes do Lançamento -----");
+        System.out.println("\n-Foguetes-\uD83D\uDE80");
         System.out.println(foguete1);
         System.out.println(foguete2);
 
+        System.out.println("\n-Satélites-\uD83D\uDEF0\uFE0F");
+        System.out.println("---");
         System.out.println(sat1);
+        System.out.println("---");
         System.out.println(sat2);
+        System.out.println("---");
         System.out.println(sat3);
-
-        // ABASTEWCENDO FOGUETE
-        System.out.println("\nAbastecendo o foguetão...");
+        // ABASTECENDO FOGUETE
+        System.out.println("\n--Status de Abastecimento do Foguetão--");
+        System.out.println("\nAbastecendo o foguetão...\uD83D\uDE80");
         foguete1.abastecer(30);
-
         // TENTANDO LANÇAR
         System.out.println("\nTentando lançar o foguetão...");
-
         if (foguete1.lancar()) {
             System.out.println("Foguetão lançado perfeitamente!");
-
             // ATIVANDO SATÉLITE
             sat1.ativar_paineis();
-
             // ENVIO DE DADOS
-            public void enviar_dados(String dados){
-    if(energia >= 10){
-        System.out.println(nome + " enviando dados: " + dados);
-        energia -= 10;
-    }else{
-        System.out.println(nome + " sem energia suficiente!");
-    }
-}
             sat1.enviar_dados("Imagens da Terra !");
             sat1.enviar_dados("Dados climáticos !");
         } else {
             System.out.println("Falha no lançamento do foguetão !!");
         }
         // RELATÓRIO DO LANÇAMENTO
-
         System.out.println("\n----- Relatório do Lançamento -----");
         System.out.println(foguete1);
+        System.out.println("---");
         System.out.println(sat1);
     }
 }
