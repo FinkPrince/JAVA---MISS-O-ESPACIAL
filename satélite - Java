@@ -1,47 +1,65 @@
+package CentroControle;
+
+
 public class Satelite {
 
+    private String observacoes;
     private String nome;
     private float massa;
-    private String orbita;
+    private String orbita_alvo;
     private float energia;
     private String status;
-    private boolean statusBO = true;
 
-    public Satelite(String nome, float massa, String orbita, float energia, String status){
-        this.nome=nome;
-        this.massa=massa;
-        this.orbita=orbita;
-        this.energia=energia; //Seria a energia gasta MAX de 100
-        this.status=status;
-    }
-    public void setStatus(String status ){
-        this.status=status;
-    }
     public String getSat(){
         return nome;
     }
-    public boolean ativar_paineis(){
-        this.energia -= 20;
-        if(this.energia<=0){
-            System.out.println("\u001B[31mSatelite " + nome + " energia passou do limite MAX \nConsumo: " + energia +"\u001B[0m" );
-            this.status="Desativado";
-            return false;
-        }
-        else{
-            System.out.println("\u001B[32mOs paineis do satelite " + nome + " foram ativado  \nConsumo: " + energia + "\u001B[0m" );
-            return true;
+    public String setStatus(){
+        return nome;
+    }
+    public Satelite(String nome, float massa, String orbita_alvo, float energia, String status, String observacoes){
+        this.nome = nome;
+        this.massa = massa;
+        this.orbita_alvo = orbita_alvo;
+        this.energia = energia;
+        this.status = status;
+        this.observacoes = observacoes;
+    }
+
+    public void ativar_paineis(){
+        energia += 20;
+
+        if(energia > 100){
+            energia = 100;
         }
     }
+    public String getObservacao(){
+        return observacoes;
+    }
+
+    public void setObservacao(String observacao){
+        this.observacoes = observacao;
+    }
+
     public void enviar_dados(String mensagem){
-        if(statusBO){
-            System.out.println("Satélite: " + nome + "\nEnviado: "+ mensagem);
-        }
-        else{
-            System.out.println("Satélite desativado");
+        if(status.equals("Ativo")){
+            System.out.println("Satelite " + nome + " enviando: " + mensagem);
         }
     }
-    @Override //So colocar um "...println(foguete)" ele vai imprimir bonito
+
+    public void relatorio(){
+        System.out.println("Nome: " + nome);
+        System.out.println("Massa: " + massa);
+        System.out.println("Orbita: " + orbita_alvo);
+        System.out.println("Energia: " + energia);
+        System.out.println("Status: " + status);
+        System.out.println("Observações: " + observacoes);
+    }
+    @Override
     public String toString(){
-        return ("\nNome: " + nome + "\nMassa: " + massa + "\nOrbita: " + orbita +"\nEnergia: " + energia + "\nStatus: " + status);
+        return "Satelite:" +nome+
+                "\nOrbita:" +orbita_alvo+
+                "\nEnergia:" +energia+
+                "\nStatus:" +status+
+                "\nObservacoes: " +observacoes;
     }
 }
