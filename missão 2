@@ -22,7 +22,7 @@ public class Missao {
 
         System.out.print("Status: ");
         String statusFoguete = sc.nextLine();
-        Foguete foguete = new Foguete(nomeFoguete, combustivel, capacidade, statusFoguete);
+        Foguete foguete = new Foguete(nomeFoguete, combustivel, carga, statusFoguete);
 
         // SATÉLITE 
         System.out.println("\n--Cadastro de Satélite --");
@@ -45,7 +45,7 @@ public class Missao {
 
         System.out.print("Finalidade: ");
         String finalidade = sc.nextLine();
-        Satelite sat = new Satelite(nomeSat, massa, orbita, energia, statusSat, finalidade);
+        Satelite sat = new Satelite(nomeSat, massa, orbita_alvo, energia, statusSat, observacoes);
 
         //RELATÓRIO INICIAL 
         System.out.println("\n-- Relatório Antes do Lançamento --");
