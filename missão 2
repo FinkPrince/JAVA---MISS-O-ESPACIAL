@@ -7,7 +7,6 @@ import CentroControle.Satelite;
 public class Missao {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         //FOGUETE 
         System.out.println("-- Cadastro de Foguete --");
         System.out.print("Nome do foguete: ");
@@ -18,12 +17,11 @@ public class Missao {
 
         System.out.print("Capacidade máxima: ");
         float capacidade = sc.nextFloat();
-        sc.nextLine(); // limpar buffer
+        sc.nextLine(); // nao deixa input
 
         System.out.print("Status: ");
         String statusFoguete = sc.nextLine();
         Foguete foguete = new Foguete(nomeFoguete, combustivel, carga, statusFoguete);
-
         // SATÉLITE 
         System.out.println("\n--Cadastro de Satélite --");
         System.out.print("Nome do satélite: ");
@@ -55,11 +53,9 @@ public class Missao {
         //MISSÃO 
         System.out.println("\nAbastecendo foguete...");
         foguete.abastecer(30);
-
         System.out.println("\nTentando lançamento...");
         if (foguete.lancar()) {
             System.out.println("Lançamento realizado com sucesso!");
-
             sat.ativar_paineis();
             sat.enviar_dados("Primeiros dados coletados!");
         } else {
@@ -70,7 +66,5 @@ public class Missao {
         System.out.println(foguete);
         System.out.println("---");
         System.out.println(sat);
-
-        sc.close();
     }
 }
