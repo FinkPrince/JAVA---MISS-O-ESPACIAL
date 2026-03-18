@@ -32,7 +32,7 @@ public class Foguete {
             return false;
         }
     }
-    @Override //So colocar um "...println(foguete)" ele vai imprimir bonito
+    @Override 
     public String toString(){
         return ("\nNome: " + nome + "\nCombustivel: " + combustivel + "\nCarga: " + carga + "\nStatus: " + status);
     }
