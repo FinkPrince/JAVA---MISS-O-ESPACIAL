@@ -29,35 +29,34 @@ public class Missao {
                        System.out.print("Combustível: ");
                     float combustivel = sc.nextFloat();
                     sc.nextLine();
-                        System.out.print("Status (Tripulado-Não tripulado): ");
+                        System.out.print("Status (Tripulado-Não tripulado):");
                     String statusF = sc.nextLine();
                     foguetes.add(new Foguete(nomeF, capacidade, combustivel, statusF));
                          System.out.println("Foguete adicionado!");
                     break;
-
                 case 2:
                     System.out.print("Nome do satélite \uD83D\uDEF0\uFE0F: ");
                     String nomeS = sc.nextLine();
                       System.out.print("Massa: ");
                     float massa = sc.nextFloat();
                     sc.nextLine();
-                       System.out.print("Órbita (LEO-GEO-LUNAR): ");
+                       System.out.print("Órbita (LEO-GEO-LUNAR):");
                     String orbita = sc.nextLine();
                         System.out.print("Energia: ");
                     float energia = sc.nextFloat();
                     sc.nextLine();
-                          System.out.print("Observações (Espionagem-Localização-Cominucação): ");
+                          System.out.print("Observações (Espionagem-Localização-Cominucação):");
                     String obs = sc.nextLine();
                     satelites.add(new Satelite(nomeS, massa, orbita, energia, obs));
                            System.out.println("Satélite adicionado!\uD83D\uDEF0\uFE0F");
                     break;
                 case 3:
-                    System.out.println("\nFoguetões\uD83D\uDE80:");
+                    System.out.println("\n--Foguetões--\uD83D\uDE80:");
                     for (Foguete f : foguetes) {
                         System.out.println(f);
                         System.out.println("---");
                     }
-                    System.out.println("\nSatélitões\uD83D\uDEF0\uFE0F:");
+                    System.out.println("\n--Satélitões--\uD83D\uDEF0\uFE0F:");
                     for (Satelite s : satelites) {
                         System.out.println(s);
                         System.out.println("---");
@@ -70,7 +69,7 @@ public class Missao {
                     }
                     Foguete f = foguetes.get(0);
                     System.out.println("\nAbastecendo foguete...");
-                    f.abastecer(30);
+                    f.abastecer(100);
                     System.out.println("Tentando lançar...");
                     if (f.lancar()) {
                         System.out.println("Lançamento deu certo!");
@@ -84,7 +83,7 @@ public class Missao {
                     }
                     break;
             }
-        } while (opcao != 0);
+        } while (opcao != 5);
         sc.close();
     }
 }
