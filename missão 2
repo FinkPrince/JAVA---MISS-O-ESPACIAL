@@ -1,0 +1,76 @@
+package CentroControle.main;
+
+import java.util.Scanner;
+import CentroControle.foguete.Foguete;
+import CentroControle.Satelite;
+
+public class Missao {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //FOGUETE 
+        System.out.println("-- Cadastro de Foguete --");
+        System.out.print("Nome do foguete: ");
+        String nomeFoguete = sc.nextLine();
+
+        System.out.print("Combustível atual: ");
+        float combustivel = sc.nextFloat();
+
+        System.out.print("Capacidade máxima: ");
+        float capacidade = sc.nextFloat();
+        sc.nextLine(); // limpar buffer
+
+        System.out.print("Status: ");
+        String statusFoguete = sc.nextLine();
+        Foguete foguete = new Foguete(nomeFoguete, combustivel, capacidade, statusFoguete);
+
+        // SATÉLITE 
+        System.out.println("\n--Cadastro de Satélite --");
+        System.out.print("Nome do satélite: ");
+        String nomeSat = sc.nextLine();
+
+        System.out.print("Massa: ");
+        float massa = sc.nextFloat();
+        sc.nextLine();
+
+        System.out.print("Órbita: ");
+        String orbita = sc.nextLine();
+
+        System.out.print("Energia: ");
+        float energia = sc.nextFloat();
+        sc.nextLine();
+
+        System.out.print("Status: ");
+        String statusSat = sc.nextLine();
+
+        System.out.print("Finalidade: ");
+        String finalidade = sc.nextLine();
+        Satelite sat = new Satelite(nomeSat, massa, orbita, energia, statusSat, finalidade);
+
+        //RELATÓRIO INICIAL 
+        System.out.println("\n-- Relatório Antes do Lançamento --");
+        System.out.println(foguete);
+        System.out.println("---");
+        System.out.println(sat);
+        //MISSÃO 
+        System.out.println("\nAbastecendo foguete...");
+        foguete.abastecer(30);
+
+        System.out.println("\nTentando lançamento...");
+        if (foguete.lancar()) {
+            System.out.println("Lançamento realizado com sucesso!");
+
+            sat.ativar_paineis();
+            sat.enviar_dados("Primeiros dados coletados!");
+        } else {
+            System.out.println("Falha no lançamento!");
+        }
+        // RELATÓRIO FINAL
+        System.out.println("\n-- Relatório Final --");
+        System.out.println(foguete);
+        System.out.println("---");
+        System.out.println(sat);
+
+        sc.close();
+    }
+}
