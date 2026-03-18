@@ -13,7 +13,7 @@ public class Missao {
         Satelite sat2 = new Satelite("Beta\uD83D\uDEF0\uFE0F", 800, "Órbita TERRA\uD83C\uDF0F", 100, "Ativo","Dados Científicos");
         Satelite sat3 = new Satelite("Omega\uD83D\uDEF0\uFE0F", 1500, "Órbita LUNAR\uD83C\uDF12", 400, "Ativo","Cominucação Global");
         // Relatório antes do lançamento
-        System.out.println("\n----- Relatorio Antes do Lançamento -----");
+        System.out.println("\n--Relatorio Antes do Lançamento --");
         System.out.println("\n-Foguetes-\uD83D\uDE80");
         System.out.println(foguete1);
         System.out.println(foguete2);
@@ -42,7 +42,7 @@ public class Missao {
             System.out.println("Falha no lançamento do foguetão !!");
         }
         // RELATÓRIO DO LANÇAMENTO
-        System.out.println("\n----- Relatório do Lançamento -----");
+        System.out.println("\n--Relatório do Lançamento--");
         System.out.println(foguete1);
         System.out.println("---");
         System.out.println(sat1);
