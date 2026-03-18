@@ -1,5 +1,4 @@
 package CentroControle.foguete;
-
 public class Foguete {
 
     private String nome;
@@ -7,10 +6,10 @@ public class Foguete {
     private float carga;
     private String status;
 
-    public Foguete(String nome, float combustivel, float carga, String status){
+    public Foguete(String nome, float carga, float combustivel, String status){
         this.nome = nome;
-        this.combustivel = combustivel;
         this.carga = carga;
+        this.combustivel = combustivel;
         this.status = status;
     }
     public void setStatus(String status ){
@@ -22,17 +21,16 @@ public class Foguete {
     public void abastecer(float abastecimento){
         this.combustivel += abastecimento;
     }
-    public boolean lancar(){
-        if(this.combustivel>50){
-            this.status = "Lançado";
+    public boolean lancar() {
+        if (combustivel > 400) {
+            status = "--Lançado--";
             return true;
-        }
-        else{
-            this.status="Falha";
+        } else {
+            status = "--Falha--";
             return false;
         }
     }
-    @Override 
+    @Override
     public String toString(){
         return ("\nNome: " + nome + "\nCombustivel: " + combustivel + "\nCarga: " + carga + "\nStatus: " + status);
     }
