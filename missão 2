@@ -1,70 +1,90 @@
 package CentroControle.main;
 
-import java.util.Scanner;
 import CentroControle.foguete.Foguete;
 import CentroControle.Satelite;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Missao {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //FOGUETE 
-        System.out.println("-- Cadastro de Foguete --");
-        System.out.print("Nome do foguete: ");
-        String nomeFoguete = sc.nextLine();
+        ArrayList<Foguete> foguetes = new ArrayList<>();
+        ArrayList<Satelite> satelites = new ArrayList<>();
+        int opcao;
+        do {
+            System.out.println("1-Adicionar Foguete \uD83D\uDE80 ");
+            System.out.println("2-Adicionar Satélite \uD83D\uDEF0\uFE0F ");
+            System.out.println("3-Mostrar oq tu fez até agr \uD83E\uDD2F");
+            System.out.println("4-Simular Lançamento");
+            System.out.println("5-Sair");
+            System.out.print("Faz oq tu quer aí: ");
+            opcao = sc.nextInt();
+            sc.nextLine(); // limpar buffer
+            switch (opcao) {
+                case 1:
+                    System.out.print("Nome do foguete \uD83D\uDE80: ");
+                    String nomeF = sc.nextLine();
+                      System.out.print("Capacidade: ");
+                    float capacidade = sc.nextFloat();
+                       System.out.print("Combustível: ");
+                    float combustivel = sc.nextFloat();
+                    sc.nextLine();
+                        System.out.print("Status (Tripulado-Não tripulado): ");
+                    String statusF = sc.nextLine();
+                    foguetes.add(new Foguete(nomeF, capacidade, combustivel, statusF));
+                         System.out.println("Foguete adicionado!");
+                    break;
 
-        System.out.print("Combustível atual: ");
-        float combustivel = sc.nextFloat();
-
-        System.out.print("Capacidade máxima: ");
-        float capacidade = sc.nextFloat();
-        sc.nextLine(); // nao deixa input
-
-        System.out.print("Status: ");
-        String statusFoguete = sc.nextLine();
-        Foguete foguete = new Foguete(nomeFoguete, combustivel, carga, statusFoguete);
-        // SATÉLITE 
-        System.out.println("\n--Cadastro de Satélite --");
-        System.out.print("Nome do satélite: ");
-        String nomeSat = sc.nextLine();
-
-        System.out.print("Massa: ");
-        float massa = sc.nextFloat();
-        sc.nextLine();
-
-        System.out.print("Órbita: ");
-        String orbita = sc.nextLine();
-
-        System.out.print("Energia: ");
-        float energia = sc.nextFloat();
-        sc.nextLine();
-
-        System.out.print("Status: ");
-        String statusSat = sc.nextLine();
-
-        System.out.print("Finalidade: ");
-        String finalidade = sc.nextLine();
-        Satelite sat = new Satelite(nomeSat, massa, orbita_alvo, energia, statusSat, observacoes);
-
-        //RELATÓRIO INICIAL 
-        System.out.println("\n-- Relatório Antes do Lançamento --");
-        System.out.println(foguete);
-        System.out.println("---");
-        System.out.println(sat);
-        //MISSÃO 
-        System.out.println("\nAbastecendo foguete...");
-        foguete.abastecer(30);
-        System.out.println("\nTentando lançamento...");
-        if (foguete.lancar()) {
-            System.out.println("Lançamento realizado com sucesso!");
-            sat.ativar_paineis();
-            sat.enviar_dados("Primeiros dados coletados!");
-        } else {
-            System.out.println("Falha no lançamento!");
-        }
-        // RELATÓRIO FINAL
-        System.out.println("\n-- Relatório Final --");
-        System.out.println(foguete);
-        System.out.println("---");
-        System.out.println(sat);
+                case 2:
+                    System.out.print("Nome do satélite \uD83D\uDEF0\uFE0F: ");
+                    String nomeS = sc.nextLine();
+                      System.out.print("Massa: ");
+                    float massa = sc.nextFloat();
+                    sc.nextLine();
+                       System.out.print("Órbita (LEO-GEO-LUNAR): ");
+                    String orbita = sc.nextLine();
+                        System.out.print("Energia: ");
+                    float energia = sc.nextFloat();
+                    sc.nextLine();
+                          System.out.print("Observações (Espionagem-Localização-Cominucação): ");
+                    String obs = sc.nextLine();
+                    satelites.add(new Satelite(nomeS, massa, orbita, energia, obs));
+                           System.out.println("Satélite adicionado!\uD83D\uDEF0\uFE0F");
+                    break;
+                case 3:
+                    System.out.println("\nFoguetões\uD83D\uDE80:");
+                    for (Foguete f : foguetes) {
+                        System.out.println(f);
+                        System.out.println("---");
+                    }
+                    System.out.println("\nSatélitões\uD83D\uDEF0\uFE0F:");
+                    for (Satelite s : satelites) {
+                        System.out.println(s);
+                        System.out.println("---");
+                    }
+                    break;
+                case 4:
+                    if (foguetes.isEmpty()) {
+                        System.out.println("Nenhum foguete encontrado!");
+                        break;
+                    }
+                    Foguete f = foguetes.get(0);
+                    System.out.println("\nAbastecendo foguete...");
+                    f.abastecer(30);
+                    System.out.println("Tentando lançar...");
+                    if (f.lancar()) {
+                        System.out.println("Lançamento deu certo!");
+                        if (!satelites.isEmpty()) {
+                            Satelite s = satelites.get(0);
+                            s.ativar_paineis();
+                            s.enviar_dados("Dados enviados!");
+                        }
+                    } else {
+                        System.out.println("Falha no lançamento! Morreu td mundo =( ");
+                    }
+                    break;
+            }
+        } while (opcao != 0);
+        sc.close();
     }
 }
