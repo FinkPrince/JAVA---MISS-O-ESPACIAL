@@ -1,2 +1,2 @@
-# JAVA---MISS-O-ESPACIAL
+# JAVA---MISSAO-ESPACIAL
 atividade em Java do professor Ederson
