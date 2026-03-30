@@ -1,11 +1,9 @@
-package CentroControle.main;
+package Missao.main;
 
-import CentroControle.foguete.Foguete;
-import CentroControle.Satelite;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Missao {
+ public class Missao {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Foguete> foguetes = new ArrayList<>();
@@ -24,14 +22,17 @@ public class Missao {
                 case 1:
                     System.out.print("Nome do foguete \uD83D\uDE80: ");
                     String nomeF = sc.nextLine();
-                      System.out.print("Capacidade: ");
+                      System.out.print("Carga: ");
                     float capacidade = sc.nextFloat();
                        System.out.print("Combustível: ");
                     float combustivel = sc.nextFloat();
                     sc.nextLine();
                         System.out.print("Status (Tripulado-Não tripulado):");
                     String statusF = sc.nextLine();
-                    foguetes.add(new Foguete(nomeF, capacidade, combustivel, statusF));
+                    System.out.print("Temperatura: ");
+                    float temperatura = sc.nextFloat();
+                    sc.nextLine();
+                    foguetes.add(new Foguete(nomeF, capacidade, combustivel, statusF, temperatura));
                          System.out.println("Foguete adicionado!");
                     break;
                 case 2:
