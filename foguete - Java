@@ -1,16 +1,18 @@
-package CentroControle.foguete;
+package Missao.main;
 public class Foguete {
 
     private String nome;
     private float combustivel;
     private float carga;
     private String status;
+    private float temperatura;
 
-    public Foguete(String nome, float carga, float combustivel, String status){
+    public Foguete(String nome, float carga, float combustivel, String status, float temperatura){
         this.nome = nome;
         this.carga = carga;
         this.combustivel = combustivel;
         this.status = status;
+        this.temperatura = this.temperatura;
     }
     public void setStatus(String status ){
         this.status=status;
@@ -30,8 +32,22 @@ public class Foguete {
             return false;
         }
     }
+    public String getTemperatura() {
+        if (temperatura > 70) {
+            return "Temperatura ALTA 🔥";
+        } else if (temperatura >= 10) {
+            return "Temperatura MÉDIA 🌡️";
+        } else {
+            return "Temperatura BAIXA ❄️";
+        }
+    }
     @Override
-    public String toString(){
-        return ("\nNome: " + nome + "\nCombustivel: " + combustivel + "\nCarga: " + carga + "\nStatus: " + status);
+    public String toString() {
+        return "Nome: " + nome +
+                "\nCapacidade: " + carga +
+                "\nCombustível: " + combustivel +
+                "\nStatus: " + status +
+                "\nTemperatura: " + temperatura +
+                "\nNível: " + getTemperatura();
     }
 }
