@@ -1,6 +1,4 @@
-package CentroControle;
-
-
+package Missao.main;
 public class Satelite {
 
     private String observacoes;
@@ -9,6 +7,7 @@ public class Satelite {
     private String orbita_alvo;
     private float energia;
     private String status;
+    private String tempoOrbita;
 
     public String getSat(){
         return nome;
@@ -16,15 +15,16 @@ public class Satelite {
     public String setStatus(){
         return nome;
     }
-    public Satelite(String nome, float massa, String orbita_alvo, float energia, String status, String observacoes){
+    public Satelite(String nome, float massa, String orbita_alvo, float energia, String observacoes, String tempoOrbita){
         this.nome = nome;
         this.massa = massa;
         this.orbita_alvo = orbita_alvo;
         this.energia = energia;
-        this.status = status;
+        this.status = "Inativo";
         this.observacoes = observacoes;
-    }
+        this.tempoOrbita = tempoOrbita;
 
+    }
     public void ativar_paineis(){
         energia += 20;
 
@@ -35,31 +35,27 @@ public class Satelite {
     public String getObservacao(){
         return observacoes;
     }
-
     public void setObservacao(String observacao){
         this.observacoes = observacao;
     }
-
     public void enviar_dados(String mensagem){
-        if(status.equals("Ativo")){
+        if (status != null && status.equals("Ativo")) {
             System.out.println("Satelite " + nome + " enviando: " + mensagem);
         }
     }
-
     public void relatorio(){
-        System.out.println("Nome: " + nome);
-        System.out.println("Massa: " + massa);
-        System.out.println("Orbita: " + orbita_alvo);
-        System.out.println("Energia: " + energia);
-        System.out.println("Status: " + status);
-        System.out.println("Observações: " + observacoes);
+        System.out.println("Nome:"+nome);
+        System.out.println("Massa:"+massa);
+        System.out.println("Orbita:"+orbita_alvo);
+        System.out.println("Energia:"+energia);
+        System.out.println("Observações:"+observacoes);
     }
     @Override
     public String toString(){
-        return "Satelite:" +nome+
-                "\nOrbita:" +orbita_alvo+
-                "\nEnergia:" +energia+
-                "\nStatus:" +status+
-                "\nObservacoes: " +observacoes;
+        return "Satelite:"+nome+
+                "\nOrbita:"+orbita_alvo+
+                "\nEnergia:"+energia+
+                "\nTempo em órbita: " + tempoOrbita +
+                "\nObservacoes: "+observacoes;
     }
 }
